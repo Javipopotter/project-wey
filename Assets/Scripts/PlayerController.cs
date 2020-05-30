@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     
     public bool wallJump;
     public int WallImpulse = 700;
-    public int WallUpImpulse = 1000; 
+    public int WallUpImpulse = 1000; // un comentario
 
     // Start is called before the first frame update
     void Start()
