@@ -77,11 +77,20 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "rightWall")
         {
             rightWallJump = true;
+        } 
+        else
+        {
+            rightWallJump = false;
         }
+
 
         if (collision.gameObject.tag == "leftWall")
         {
             leftWallJump = true;
+        }
+        else
+        {
+            leftWallJump = false;
         }
 
         if (collision.transform.tag == "ground")
