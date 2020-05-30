@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     bool flashVelocity = false;
     bool CanJump;
     
-    public bool wallJump;
+    public bool leftWallJump;
+    public bool rightWallJump;
     public int WallImpulse = 700;
     public int WallUpImpulse = 1000; // un comentario extra
 
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
             flashVelocity = true;
         } 
        
-        //Este e spa ir a la derecha
+        //Este es pa ir a la derecha
         if (Input.GetKey("d"))
         {
             rb.AddForce(new Vector2(PlayerSpeed * Time.deltaTime, 0));
@@ -58,23 +59,40 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
 
-        /*Este es pa hacer WallJump
-        if ((((Input.GetKeyDown(KeyCode.Space) && (wallJump == true)))))
+       // Este es pa hacer WallJump
+        if ((((Input.GetKeyDown(KeyCode.Space) && (rightWallJump == true)))))
         {
-            rb.AddForce(new Vector2(-WallImpulse, WallUpImpulse));
-            Debug.Log("Has hecho un walljump");
-        } */
-       
+            rightWallJump = false;
+            rb.AddForce(new Vector2(-WallImpulse, WallUpImpulse));            
+        }
+
+        if ((((Input.GetKeyDown(KeyCode.Space) && (leftWallJump == true)))))
+        {
+            leftWallJump = false;
+            rb.AddForce(new Vector2(WallImpulse, WallUpImpulse));
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "rightWall")
+        {
+            rightWallJump = true;
+        }
+
+        if (collision.gameObject.tag == "leftWall")
+        {
+            leftWallJump = true;
+        }
+
         if (collision.transform.tag == "ground")
         {
             CanJump = true;
            
         }
-      
+
         
+
+
         /* void OnCollisionEnter2D (Collision2D collison)
         {
             if (collison.transform.tag == "wall")
@@ -87,6 +105,6 @@ public class PlayerController : MonoBehaviour
                 wallJump = false;
             }
         }  */
-        
+
     }
 }
