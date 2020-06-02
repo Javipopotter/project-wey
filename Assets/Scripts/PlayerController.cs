@@ -12,12 +12,15 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     bool flashVelocity = false;
     bool CanJump;
-    public int timer = 120;
-    public int timerClone;
-    bool timerStop;
-    bool JumpStop;
     bool CanDoubleJump;
     public float ScJumpForce = 500;
+    bool InTheAir;
+    public float AirSpeed = 700f;
+    float PlayerSpeedClone;
+    public int vidas = 4;
+    bool vivo = true;
+    public GameObject SpawnPoint;
+    int cloneVidas;
     
     public bool leftWallJump;
     public bool rightWallJump;
@@ -27,7 +30,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timerClone = timer;
+        cloneVidas = vidas;
+        PlayerSpeedClone = PlayerSpeed;
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
@@ -35,6 +39,16 @@ public class PlayerController : MonoBehaviour
     void Update()
 
     {
+        if(vivo == false)
+        {
+            vidas = cloneVidas;
+            vivo = true;
+            this.gameObject.transform.position = SpawnPoint.transform.position;
+        }
+        if(vidas <= 0)
+        {
+            vivo = false;
+        }
         
         GettingKey = false;
 
@@ -70,6 +84,14 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if(InTheAir == true)
+        {
+            PlayerSpeed = AirSpeed;
+        }
+        else
+        {
+            PlayerSpeed = PlayerSpeedClone;
+        }
         //Este es pa doblesaltar
         if (Input.GetKeyDown(KeyCode.Space) && (CanDoubleJump == true))
         {
@@ -82,33 +104,8 @@ public class PlayerController : MonoBehaviour
         {           
             CanJump = false;
             rb.AddForce(new Vector2(0, JumpForce));
-            JumpStop = true;
             CanDoubleJump = true;
         }      
-
-        if ((Input.GetKeyUp(KeyCode.Space)) && (timerStop != true) && (JumpStop == true))
-        {
-            JumpStop = false;
-            rb.AddForce(new Vector2(0, -JumpForce));
-        }
-
-        if (Input.GetKey(KeyCode.Space))
-        {
-            timer--;
-        }
-        if ((timer <= 0) && (CanJump == true))
-        {
-            timer = timerClone;
-        }
-        if(timer <= 0)
-        {
-            timerStop = true;
-        } 
-        else
-        {
-            timerStop = false;
-        }
-
         // Este es para detener en seco al personaje
         if (((GettingKey == false) && (flashVelocity == true)) && (CanJump == true))
         {
@@ -132,10 +129,15 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            vidas--;
+            rb.AddForce(new Vector2(0,700));
+        }
+
         if (collision.gameObject.tag == "rightWall")
         {
             rightWallJump = true;
-            timer = timerClone;
         } 
         else
         {
@@ -145,8 +147,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.tag == "leftWall")
         {
-            leftWallJump = true;
-            timer = timerClone;
+            leftWallJump = true;           
         }
         else
         {
@@ -156,7 +157,17 @@ public class PlayerController : MonoBehaviour
         if (collision.transform.tag == "ground")
         {
             CanJump = true;
-            timer = timerClone;
-        }                             
+        }
+        if (collision.transform.tag == "ground")
+        {
+            InTheAir = false;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "ground")
+        {
+            InTheAir = true;
+        }      
     }
 }

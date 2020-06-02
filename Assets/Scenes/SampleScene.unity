@@ -1599,8 +1599,8 @@ GameObject:
   - component: {fileID: 1006077670}
   - component: {fileID: 1006077672}
   - component: {fileID: 1006077674}
-  - component: {fileID: 1006077671}
   - component: {fileID: 1006077675}
+  - component: {fileID: 1006077671}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1629,8 +1629,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1006077671
-BoxCollider2D:
+--- !u!58 &1006077671
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1642,19 +1642,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.024456233, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.9401031
 --- !u!212 &1006077672
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1694,7 +1684,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 549bfb02739b4be42b5e32cc38f7e8d6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a79920a5ca4d78e46bf649c65b582eee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1713,8 +1703,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006077669}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 51.6, y: 11.9, z: 0}
-  m_LocalScale: {x: 1.302807, y: 2.077536, z: 1}
+  m_LocalPosition: {x: 52.365, y: 11.661, z: 0}
+  m_LocalScale: {x: 1.5984187, y: 1.5749145, z: 0.8335}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -1735,6 +1725,7 @@ MonoBehaviour:
   JumpForce: 750
   timer: 100
   timerClone: 0
+  ScJumpForce: 500
   leftWallJump: 0
   rightWallJump: 0
   WallImpulse: 700
@@ -2234,7 +2225,7 @@ HingeJoint2D:
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 618821140}
-  m_BreakForce: Infinity
+  m_BreakForce: 350
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0.0066814423, y: -0.5621095}
@@ -2264,7 +2255,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 49.677227, y: 27.339146}
   m_AutoConfigureDistance: 1
-  m_Distance: 6.271376
+  m_Distance: 5.4898114
   m_MaxDistanceOnly: 0
 --- !u!1 &1504417992
 GameObject:
@@ -3898,8 +3889,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138210117}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 49.5, y: 21.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 49.497, y: 22.147, z: 0}
+  m_LocalScale: {x: 1.2831, y: 1.2831, z: 1.2831}
   m_Children:
   - {fileID: 1501955301}
   - {fileID: 618821138}
