@@ -18,10 +18,18 @@ public class PlayerController : MonoBehaviour
     public float AirSpeed = 700f;
     float PlayerSpeedClone;
     public int vidas = 4;
+
+    public float DashUpForce = 1000f;
+    public float DashLateralForce = 1000f;
+    public int NumberOfDashes = 1;
+    
     bool vivo = true;
     public GameObject SpawnPoint;
     int cloneVidas;
-    
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
+    bool playerDirection;
+
     public bool leftWallJump;
     public bool rightWallJump;
     public int WallImpulse = 700;
@@ -63,6 +71,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector2(-PlayerSpeed * Time.deltaTime, 0));
             GettingKey = true;
             flashVelocity = true;
+            playerDirection = false;
 
             if(Input.GetKey(KeyCode.LeftShift))
             {
@@ -76,6 +85,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector2(PlayerSpeed * Time.deltaTime, 0));
             GettingKey = true;
             flashVelocity = true;
+            playerDirection = true;
 
 
             if (Input.GetKey(KeyCode.LeftShift))
@@ -92,6 +102,19 @@ public class PlayerController : MonoBehaviour
         {
             PlayerSpeed = PlayerSpeedClone;
         }
+
+        //dash
+        if(Input.GetKeyDown("w") && (playerDirection == true) && (NumberOfDashes > 0))
+        {
+            NumberOfDashes--;
+            rb.AddForce(new Vector2(DashLateralForce, DashUpForce));
+        }
+        if (Input.GetKeyDown("w") && (playerDirection == false) && (NumberOfDashes > 0))
+        {
+            rb.AddForce(new Vector2(-DashLateralForce, DashUpForce));
+            NumberOfDashes--;
+        }
+
         //Este es pa doblesaltar
         if (Input.GetKeyDown(KeyCode.Space) && (CanDoubleJump == true))
         {
@@ -106,6 +129,16 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector2(0, JumpForce));
             CanDoubleJump = true;
         }      
+
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+       /* else if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.Space))
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        */
         // Este es para detener en seco al personaje
         if (((GettingKey == false) && (flashVelocity == true)) && (CanJump == true))
         {
@@ -138,29 +171,40 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "rightWall")
         {
             rightWallJump = true;
+            NumberOfDashes = 1;
+            playerDirection = false;
         } 
-        else
-        {
-            rightWallJump = false;
-        }
 
 
         if (collision.gameObject.tag == "leftWall")
         {
-            leftWallJump = true;           
+            leftWallJump = true;
+            NumberOfDashes = 1;
+            playerDirection = true;
         }
-        else
-        {
-            leftWallJump = false;
-        }
+       
 
         if (collision.transform.tag == "ground")
         {
             CanJump = true;
+            NumberOfDashes = 1;
         }
         if (collision.transform.tag == "ground")
         {
             InTheAir = false;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "rightWall")
+        {
+            playerDirection = false;
+        }
+
+        if (collision.gameObject.tag == "leftWall")
+        {
+            playerDirection = true;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -168,6 +212,14 @@ public class PlayerController : MonoBehaviour
         if (collision.transform.tag == "ground")
         {
             InTheAir = true;
-        }      
+        }
+        if (collision.gameObject.tag == "rightWall")
+        {
+            rightWallJump = false;
+        }
+        if (collision.gameObject.tag == "leftWall")
+        {
+            leftWallJump = false;          
+        }
     }
 }
