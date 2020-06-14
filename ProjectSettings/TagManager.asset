@@ -9,6 +9,7 @@ TagManager:
   - rightWall
   - leftWall
   - Enemy
+  - FrictionZone
   layers:
   - Default
   - TransparentFX

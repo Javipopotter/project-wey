@@ -19,6 +19,6 @@ public class LifesController : MonoBehaviour
         if(playerController.vidas < LifeNumber)
         {
             this.gameObject.SetActive(false);
-        } 
+        }
     }
 }

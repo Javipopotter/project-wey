@@ -19,11 +19,13 @@ public class PlayerController : MonoBehaviour
     float PlayerSpeedClone;
     public int vidas = 4;
 
+    public GameObject KillZone;
+
     public float DashUpForce = 1000f;
     public float DashLateralForce = 1000f;
     public int NumberOfDashes = 1;
     
-    bool vivo = true;
+    public bool vivo = true;
     public GameObject SpawnPoint;
     int cloneVidas;
     public float fallMultiplier = 2.5f;
@@ -162,6 +164,11 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.name == "KillZone")
+        {
+            vivo = false;
+        }
+
         if (collision.gameObject.tag == "Enemy")
         {
             vidas--;
