@@ -6,6 +6,7 @@ public class NewPlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
     public GameObject SpawnPoint;
+    public GameObject EasterEggSpawnpoint;
 
     //floats
     public float AirSpeed;
@@ -23,10 +24,12 @@ public class NewPlayerController : MonoBehaviour
 
     //Booleans
     bool canJump;
-    bool PlayerDirection;
     bool rightWallJump;
     bool leftWallJump;
     public bool vivo = true;
+    public bool IsGoingUp;
+    public bool CanGoDown;
+    public bool touchingGround;
 
     // Start is called before the first frame update
     void Start()
@@ -36,17 +39,24 @@ public class NewPlayerController : MonoBehaviour
     }
 
     void keyboardInput()
-    {
-        //LateralMovement
-        if (Input.GetKey("d"))
+    {       
+        if(Input.GetKey("s"))
+        {
+            CanGoDown = true;
+            IsGoingUp = false;
+        } 
+        else if(Input.GetKeyUp("s"))
+        {
+            CanGoDown = false;
+        }
+            //LateralMovement
+            if (Input.GetKey("d"))
         {
             rb.AddForce(new Vector2(Speed, 0));
-            PlayerDirection = true;
         }
         if (Input.GetKey("a"))
         {
             rb.AddForce(new Vector2(-Speed, 0));
-            PlayerDirection = false;
         }
 
         //Jump
@@ -56,26 +66,34 @@ public class NewPlayerController : MonoBehaviour
         }
 
         //WallJump
-        if (Input.GetKeyDown(KeyCode.Space) && (rightWallJump == true))
+        if (Input.GetKeyDown(KeyCode.Space) && (rightWallJump == true) && (touchingGround == false))
         {
             rightWallJump = false;
             rb.AddForce(new Vector2(-wallImpulse, wallUpImpulse));
         }
-        if (Input.GetKeyDown(KeyCode.Space) && (leftWallJump == true))
+        if (Input.GetKeyDown(KeyCode.Space) && (leftWallJump == true) && (touchingGround == false))
         {
             leftWallJump = false;
             rb.AddForce(new Vector2(wallImpulse, wallUpImpulse));
         }
     }
 
-    static int suma(int a, int b)
+    /*static int suma(int a, int b)
     {
         return a + b;
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
     {
+        if(rb.velocity.y > 0)
+        {
+            IsGoingUp = true;
+        }
+        else if (rb.velocity.y <= 0)
+        {
+            IsGoingUp = false;
+        }
         //Control de Vidas
         if (vivo == false)
         {
@@ -88,12 +106,12 @@ public class NewPlayerController : MonoBehaviour
             vivo = false;
         }
 
-        print(suma(1, 4));
+       // print(suma(1, 4));
 
         keyboardInput();
     }
     private void OnCollisionEnter2D(Collision2D collision)
-    {
+    {    
         switch (collision.gameObject.tag) {
             case "Enemy":
                 vidas--;
@@ -102,17 +120,14 @@ public class NewPlayerController : MonoBehaviour
             case "ground":
                 canJump = true;
                 Speed = GroundSpeed;
-            break;
+                touchingGround = true;
+                break;
             case "rightWall":
                 rightWallJump = true;
-                PlayerDirection = false;
-                rb.velocity = new Vector2(0f, 0f);
             break;
             case "leftWall":
-                leftWallJump = true;
-                PlayerDirection = true;
-                rb.velocity = new Vector2(0f, 0f);
-            break;
+                leftWallJump = true;              
+                break;
         }
         if (collision.gameObject.name == "KillZone")
         {
@@ -125,6 +140,7 @@ public class NewPlayerController : MonoBehaviour
         {
             canJump = false;
             Speed = AirSpeed;
+            touchingGround = false;
         }
 
         if (collision.gameObject.tag == "rightWall")
@@ -137,6 +153,13 @@ public class NewPlayerController : MonoBehaviour
         {
             leftWallJump = false;
             Speed = GroundSpeed;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "EasterEgg Zone")
+        {
+            this.gameObject.transform.position = EasterEggSpawnpoint.transform.position;
         }
     }
 }

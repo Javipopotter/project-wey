@@ -5,20 +5,25 @@ using UnityEngine;
 public class LifesController : MonoBehaviour
 {
     public int LifeNumber;
-    public PlayerController playerController;
+    public NewPlayerController newplayerController;
+    public SpriteRenderer sr;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        sr = this.gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(playerController.vidas < LifeNumber)
+        if(newplayerController.vidas < LifeNumber)
         {
-            this.gameObject.SetActive(false);
+            sr.enabled = false;
+        }
+        else
+        {
+            sr.enabled = true;
         }
     }
 }
