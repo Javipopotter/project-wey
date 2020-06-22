@@ -15,12 +15,6 @@ public class Plataform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*  if(newPlayerController.IsGoingUp == true)
-          {
-              ignoreCollisionWithPlayer();
-          }
-          */
-
         if(newPlayerController.IsGoingUp == true || newPlayerController.CanGoDown == true)
         {
             ignoreCollisionWithPlayer();
@@ -28,14 +22,21 @@ public class Plataform : MonoBehaviour
         else if(newPlayerController.CanGoDown == false)
         {
             enableCollisionWithPlayer();
-        }
+        } 
     }
-    void enableCollisionWithPlayer()
+    public void enableCollisionWithPlayer()
     {
         Physics2D.IgnoreCollision(newPlayerController.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
     }
-    void ignoreCollisionWithPlayer()
+    public void ignoreCollisionWithPlayer()
     {
         Physics2D.IgnoreCollision(newPlayerController.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.name == "Player")
+        {
+            newPlayerController.CanGoDown = false;
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class NewPlayerController : MonoBehaviour
@@ -20,6 +21,7 @@ public class NewPlayerController : MonoBehaviour
     //int
     int cloneVidas;
     public int vidas = 4;
+    public int animationTimer = 200; 
 
 
     //Booleans
@@ -30,6 +32,8 @@ public class NewPlayerController : MonoBehaviour
     public bool IsGoingUp;
     public bool CanGoDown;
     public bool touchingGround;
+    public bool AnimationActivation;
+    bool Invulnerability; 
 
     // Start is called before the first frame update
     void Start()
@@ -69,12 +73,12 @@ public class NewPlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && (rightWallJump == true) && (touchingGround == false))
         {
             rightWallJump = false;
-            rb.AddForce(new Vector2(-wallImpulse, wallUpImpulse));
+            rb.AddForce(new Vector2(-wallImpulse , wallUpImpulse));
         }
         if (Input.GetKeyDown(KeyCode.Space) && (leftWallJump == true) && (touchingGround == false))
         {
             leftWallJump = false;
-            rb.AddForce(new Vector2(wallImpulse, wallUpImpulse));
+            rb.AddForce(new Vector2(wallImpulse , wallUpImpulse));
         }
     }
 
@@ -86,6 +90,18 @@ public class NewPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(AnimationActivation == true)
+        {
+            animationTimer--;
+        }
+
+        if(animationTimer <= 0)
+        {
+            AnimationActivation = false;
+            gameObject.GetComponent<Animator>().SetBool("GettingDamage", false);
+            Invulnerability = false;
+            animationTimer = 200;          
+        }
         if(rb.velocity.y > 0)
         {
             IsGoingUp = true;
@@ -114,9 +130,15 @@ public class NewPlayerController : MonoBehaviour
     {    
         switch (collision.gameObject.tag) {
             case "Enemy":
-                vidas--;
-                rb.AddForce(new Vector2(0, 700));
-            break;
+                if (Invulnerability == false)
+                {
+                    gameObject.GetComponent<Animator>().SetBool("GettingDamage", true);
+                    vidas--;
+                    AnimationActivation = true;
+                    rb.AddForce(new Vector2(0, 700));
+                    Invulnerability = true;
+                }
+                break;
             case "ground":
                 canJump = true;
                 Speed = GroundSpeed;

@@ -6,6 +6,8 @@ public class LiftController : MonoBehaviour
 {
     DistanceJoint2D distanceJoint2D;
     public float DistanceReductor;
+    public float DistanceAdd;
+    bool flagAddingDistance;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,17 @@ public class LiftController : MonoBehaviour
         if ((collision.gameObject.name == "Player") && (distanceJoint2D.distance > 5))
         {
             distanceJoint2D.distance -= DistanceReductor;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if ((collision.gameObject.name == "Player"))
+        {
+            while (distanceJoint2D.distance < DistanceAdd)
+            {
+                distanceJoint2D.distance++;
+            }
         }
     }
 }
