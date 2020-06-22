@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceReductor: 1
+  DistanceAdd: 0
 --- !u!61 &504052653341538036
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -12,11 +12,12 @@ public class NewPlayerController : MonoBehaviour
     //floats
     public float AirSpeed;
     public float GroundSpeed;
-    float Speed;
+    public float Speed;
     public float jumpForce = 500f;
     public float wallImpulse;
     public float wallUpImpulse;
     public float wallFriction;
+    public float crouchSpeed;
 
     //int
     int cloneVidas;
@@ -33,7 +34,9 @@ public class NewPlayerController : MonoBehaviour
     public bool CanGoDown;
     public bool touchingGround;
     public bool AnimationActivation;
-    bool Invulnerability; 
+    bool Invulnerability;
+    bool flagcrouch;
+    bool QCrouched;
 
     // Start is called before the first frame update
     void Start()
@@ -48,10 +51,18 @@ public class NewPlayerController : MonoBehaviour
         {
             CanGoDown = true;
             IsGoingUp = false;
+
+            if (flagcrouch == true)
+            {
+                gameObject.GetComponent<Animator>().SetBool("IsCrouched", true);
+                QCrouched = true;
+            } 
         } 
         else if(Input.GetKeyUp("s"))
         {
             CanGoDown = false;
+            gameObject.GetComponent<Animator>().SetBool("IsCrouched", false);
+            QCrouched = false;
         }
             //LateralMovement
             if (Input.GetKey("d"))
@@ -143,6 +154,7 @@ public class NewPlayerController : MonoBehaviour
                 canJump = true;
                 Speed = GroundSpeed;
                 touchingGround = true;
+                flagcrouch = true;
                 break;
             case "rightWall":
                 rightWallJump = true;
@@ -163,6 +175,7 @@ public class NewPlayerController : MonoBehaviour
             canJump = false;
             Speed = AirSpeed;
             touchingGround = false;
+            flagcrouch = false;
         }
 
         if (collision.gameObject.tag == "rightWall")
