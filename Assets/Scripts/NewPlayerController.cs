@@ -14,9 +14,6 @@ public class NewPlayerController : MonoBehaviour
     public float GroundSpeed;
     public float Speed;
     public float jumpForce = 500f;
-    public float wallImpulse;
-    public float wallUpImpulse;
-    public float wallFriction;
     public float crouchSpeed;
 
     //int
@@ -27,8 +24,6 @@ public class NewPlayerController : MonoBehaviour
 
     //Booleans
     bool canJump;
-    bool rightWallJump;
-    bool leftWallJump;
     public bool vivo = true;
     public bool IsGoingUp;
     public bool CanGoDown;
@@ -37,6 +32,7 @@ public class NewPlayerController : MonoBehaviour
     bool Invulnerability;
     bool flagcrouch;
     bool QCrouched;
+    public bool PlayerDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -67,30 +63,32 @@ public class NewPlayerController : MonoBehaviour
             //LateralMovement
             if (Input.GetKey("d"))
         {
-            rb.AddForce(new Vector2(Speed, 0));
+            rb.AddForce(new Vector2(Speed * Time.deltaTime, 0));
+            PlayerDirection = true;
+
+            if (touchingGround == true)
+            {
+                Speed = GroundSpeed;
+            }
         }
         if (Input.GetKey("a"))
         {
-            rb.AddForce(new Vector2(-Speed, 0));
+            rb.AddForce(new Vector2(-Speed * Time.deltaTime, 0));
+            PlayerDirection = false;
+
+            if (touchingGround == true)
+            {
+                Speed = GroundSpeed;
+            }
         }
 
         //Jump
         if (Input.GetKeyDown(KeyCode.Space) && (canJump == true))
         {
             rb.AddForce(new Vector2(0, jumpForce));
-        }
-
-        //WallJump
-        if (Input.GetKeyDown(KeyCode.Space) && (rightWallJump == true) && (touchingGround == false))
-        {
-            rightWallJump = false;
-            rb.AddForce(new Vector2(-wallImpulse , wallUpImpulse));
-        }
-        if (Input.GetKeyDown(KeyCode.Space) && (leftWallJump == true) && (touchingGround == false))
-        {
-            leftWallJump = false;
-            rb.AddForce(new Vector2(wallImpulse , wallUpImpulse));
-        }
+            touchingGround = false;
+            gameObject.GetComponent<Animator>().SetBool("HasJumped", true);          
+        }    
     }
 
     /*static int suma(int a, int b)
@@ -101,6 +99,11 @@ public class NewPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(QCrouched == true)
+        {
+            Speed = crouchSpeed;
+        }
+
         if(AnimationActivation == true)
         {
             animationTimer--;
@@ -155,13 +158,8 @@ public class NewPlayerController : MonoBehaviour
                 Speed = GroundSpeed;
                 touchingGround = true;
                 flagcrouch = true;
-                break;
-            case "rightWall":
-                rightWallJump = true;
-            break;
-            case "leftWall":
-                leftWallJump = true;              
-                break;
+                gameObject.GetComponent<Animator>().SetBool("HasJumped", false);
+                break;           
         }
         if (collision.gameObject.name == "KillZone")
         {
@@ -174,21 +172,8 @@ public class NewPlayerController : MonoBehaviour
         {
             canJump = false;
             Speed = AirSpeed;
-            touchingGround = false;
             flagcrouch = false;
-        }
-
-        if (collision.gameObject.tag == "rightWall")
-        {
-            rightWallJump = false;
-            Speed = GroundSpeed;
-        }
-
-        if (collision.gameObject.tag == "leftWall")
-        {
-            leftWallJump = false;
-            Speed = GroundSpeed;
-        }
+        }       
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

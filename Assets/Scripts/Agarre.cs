@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Agarre : MonoBehaviour
 {
-    public bool CanGrab;
-    private Rigidbody2D rb;
+    public NewPlayerController newPlayerController;
+    Rigidbody2D rb;
+    public float Ymovement;
+    public float WallJumpForce;
+    bool IsGraving;
+    bool CanGrab;
+    bool CanWallJump;
 
     // Start is called before the first frame update
     void Start()
@@ -14,23 +19,66 @@ public class Agarre : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if(Input.GetKey("e") && (CanGrab == true))
-        {
-            rb.velocity = Vector2.zero;
-        }
-    }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "rightWall" || collision.gameObject.tag == "leftWall")
+        if(Input.GetKeyDown(KeyCode.Space) && CanWallJump == true)
         {
-            CanGrab = true;
+            CanGrab = false;
+            rb.AddForce(new Vector2(-WallJumpForce, 0));
+        }
+
+        if(CanGrab == true && Input.GetMouseButton(1))
+        {
+            IsGraving = true;
+            Grab();                      
         }
         else
         {
+            IsGraving = false;
+        }
+
+        if(IsGraving == true && Input.GetKey("w"))
+        {
+            Upmovement();
+        }
+
+        if(IsGraving == true && Input.GetKey("s"))
+        {
+            Downmovement();
+        } 
+    }
+
+    void Upmovement()
+    {
+        rb.MovePosition (rb.position + new Vector2(0, Ymovement));
+    }
+
+    void Downmovement()
+    {
+        rb.MovePosition(rb.position + new Vector2(0, -Ymovement));
+    }
+
+    void Grab()
+    {
+        rb.velocity = new Vector2(0, 0);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if((collision.gameObject.tag == "AnotherBrickInTheWall"))
+        {
+            CanGrab = true;
+            CanWallJump = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if((collision.gameObject.tag == "AnotherBrickInTheWall"))
+        {
             CanGrab = false;
+            CanWallJump = false;
         }
     }
 }

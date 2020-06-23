@@ -3803,95 +3803,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1001 &1643226104
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3915172413949514395, guid: 4d79b810d87ba9749a3286562e3a65e8,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 9ea2651b48bbbac49ba50c97a06d9792, type: 2}
-    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -83.71817
-      objectReference: {fileID: 0}
-    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 88.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: -205.4671
-      objectReference: {fileID: 0}
-    - target: {fileID: 3915172415287690202, guid: 4d79b810d87ba9749a3286562e3a65e8,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3915172415287690204, guid: 4d79b810d87ba9749a3286562e3a65e8,
-        type: 3}
-      propertyPath: m_Name
-      value: Big huge white plataform (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3915172415396523183, guid: 4d79b810d87ba9749a3286562e3a65e8,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 9ea2651b48bbbac49ba50c97a06d9792, type: 2}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4d79b810d87ba9749a3286562e3a65e8, type: 3}
 --- !u!1 &1646754184
 GameObject:
   m_ObjectHideFlags: 0
@@ -6091,6 +6002,11 @@ PrefabInstance:
       propertyPath: GroundSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1176482989394247266, guid: 7474dba2060f73c4ba5b73b6b9bdf242,
+        type: 3}
+      propertyPath: crouchSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1176482989394247268, guid: 7474dba2060f73c4ba5b73b6b9bdf242,
         type: 3}
       propertyPath: KillZone
@@ -6101,6 +6017,31 @@ PrefabInstance:
       propertyPath: SpawnPoint
       value: 
       objectReference: {fileID: 26027591}
+    - target: {fileID: 1176482989394247269, guid: 7474dba2060f73c4ba5b73b6b9bdf242,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176482989394247269, guid: 7474dba2060f73c4ba5b73b6b9bdf242,
+        type: 3}
+      propertyPath: newPlayerController
+      value: 
+      objectReference: {fileID: 1006077676}
+    - target: {fileID: 1176482989394247269, guid: 7474dba2060f73c4ba5b73b6b9bdf242,
+        type: 3}
+      propertyPath: Ymovement
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176482989394247269, guid: 7474dba2060f73c4ba5b73b6b9bdf242,
+        type: 3}
+      propertyPath: VerticalJForce
+      value: 1700
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176482989394247269, guid: 7474dba2060f73c4ba5b73b6b9bdf242,
+        type: 3}
+      propertyPath: HorizontalJForce
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1176482989394247270, guid: 7474dba2060f73c4ba5b73b6b9bdf242,
         type: 3}
       propertyPath: m_Color.r
@@ -6220,6 +6161,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2236520159086635574, guid: b171b3cab4fbd884d9a1335b5f31fd98,
+        type: 3}
+      propertyPath: m_TagString
+      value: AnotherBrickInTheWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236520159086635595, guid: b171b3cab4fbd884d9a1335b5f31fd98,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0003311932
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236520159086635595, guid: b171b3cab4fbd884d9a1335b5f31fd98,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.12352693
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236520159086635595, guid: b171b3cab4fbd884d9a1335b5f31fd98,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.998854
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236520160100447968, guid: b171b3cab4fbd884d9a1335b5f31fd98,
+        type: 3}
+      propertyPath: m_TagString
+      value: AnotherBrickInTheWall
+      objectReference: {fileID: 0}
     - target: {fileID: 2236520160243578728, guid: b171b3cab4fbd884d9a1335b5f31fd98,
         type: 3}
       propertyPath: m_Name
@@ -6388,6 +6354,11 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 9ea2651b48bbbac49ba50c97a06d9792, type: 2}
+    - target: {fileID: 3915172413949514397, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: AnotherBrickInTheWall
+      objectReference: {fileID: 0}
     - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6458,6 +6429,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Big huge white plataform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3915172415396523169, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: AnotherBrickInTheWall
+      objectReference: {fileID: 0}
     - target: {fileID: 3915172415396523183, guid: 4d79b810d87ba9749a3286562e3a65e8,
         type: 3}
       propertyPath: m_Material
@@ -6465,3 +6441,72 @@ PrefabInstance:
       objectReference: {fileID: 6200000, guid: 9ea2651b48bbbac49ba50c97a06d9792, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d79b810d87ba9749a3286562e3a65e8, type: 3}
+--- !u!1001 &4999928000499946385
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8301871992337085360, guid: e919b369d36cf0d47bca99cdd0f26224,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -83.71817
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301871992337085360, guid: e919b369d36cf0d47bca99cdd0f26224,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 88.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301871992337085360, guid: e919b369d36cf0d47bca99cdd0f26224,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301871992337085360, guid: e919b369d36cf0d47bca99cdd0f26224,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301871992337085360, guid: e919b369d36cf0d47bca99cdd0f26224,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301871992337085360, guid: e919b369d36cf0d47bca99cdd0f26224,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301871992337085360, guid: e919b369d36cf0d47bca99cdd0f26224,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301871992337085360, guid: e919b369d36cf0d47bca99cdd0f26224,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301871992337085360, guid: e919b369d36cf0d47bca99cdd0f26224,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301871992337085360, guid: e919b369d36cf0d47bca99cdd0f26224,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301871992337085360, guid: e919b369d36cf0d47bca99cdd0f26224,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301871992337085365, guid: e919b369d36cf0d47bca99cdd0f26224,
+        type: 3}
+      propertyPath: m_Name
+      value: Big huge white plataform (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e919b369d36cf0d47bca99cdd0f26224, type: 3}

@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4999928002132684905
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3915172413949514395, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 9ea2651b48bbbac49ba50c97a06d9792, type: 2}
+    - target: {fileID: 3915172413949514397, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: AnotherBrickInTheWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -83.71817
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 88.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915172415287690201, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: -205.4671
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915172415287690202, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915172415287690204, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_Name
+      value: Big huge white plataform (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915172415396523169, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: AnotherBrickInTheWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915172415396523183, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 9ea2651b48bbbac49ba50c97a06d9792, type: 2}
+    - target: {fileID: 3915172415396523183, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.00037650764
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915172415396523183, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.12352693
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915172415396523183, guid: 4d79b810d87ba9749a3286562e3a65e8,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.99894464
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4d79b810d87ba9749a3286562e3a65e8, type: 3}

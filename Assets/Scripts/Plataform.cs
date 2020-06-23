@@ -15,7 +15,7 @@ public class Plataform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(newPlayerController.IsGoingUp == true || newPlayerController.CanGoDown == true)
+        if(newPlayerController.IsGoingUp == true || newPlayerController.CanGoDown == true || Input.GetKey("w"))
         {
             ignoreCollisionWithPlayer();
         } 

@@ -10,6 +10,7 @@ TagManager:
   - leftWall
   - Enemy
   - FrictionZone
+  - AnotherBrickInTheWall
   layers:
   - Default
   - TransparentFX
