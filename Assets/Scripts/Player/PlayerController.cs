@@ -172,7 +172,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             vidas--;
-            rb.AddForce(new Vector2(0,700));
         }
 
         if (collision.gameObject.tag == "rightWall")

@@ -12,7 +12,7 @@ public class Agarre : MonoBehaviour
     float NXWallJumpForce;
     public float YWallJumpForce;
     public bool IsGraving;
-    bool CanGrab;
+    public bool CanGrab;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +31,7 @@ public class Agarre : MonoBehaviour
         {
             CanGrab = false;
             rb.AddForce(new Vector2(XWallJumpForce * Time.deltaTime, YWallJumpForce));
+            print("WallJump");
         }
 
         if(CanGrab == true && Input.GetMouseButton(1))

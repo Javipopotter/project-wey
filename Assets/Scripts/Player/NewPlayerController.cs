@@ -8,6 +8,10 @@ public class NewPlayerController : MonoBehaviour
     Rigidbody2D rb;
     public GameObject SpawnPoint;
     public GameObject EasterEggSpawnpoint;
+    public ParticleSystem Blood;
+    public ParticleSystem Jparticles;
+    public ParticleSystem DeathParticles;
+    public SpriteRenderer sr;
 
     //floats
     public float AirSpeed;
@@ -15,6 +19,7 @@ public class NewPlayerController : MonoBehaviour
     public float Speed;
     public float jumpForce = 500f;
     public float crouchSpeed;
+    public float DeathTimer = 300;
 
     //int
     int cloneVidas;
@@ -33,12 +38,15 @@ public class NewPlayerController : MonoBehaviour
     bool flagcrouch;
     bool QCrouched;
     public bool PlayerDirection;
+    bool deathTimerActivator;
+    bool PlayerBlockMovement;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         cloneVidas = vidas;
+        sr = gameObject.GetComponent<SpriteRenderer>();
     }
 
     void keyboardInput()
@@ -61,7 +69,7 @@ public class NewPlayerController : MonoBehaviour
             QCrouched = false;
         }
             //LateralMovement
-            if (Input.GetKey("d"))
+            if (Input.GetKey("d") && PlayerBlockMovement == false)
         {
             rb.AddForce(new Vector2(Speed * Time.deltaTime, 0));
             PlayerDirection = true;
@@ -71,7 +79,7 @@ public class NewPlayerController : MonoBehaviour
                 Speed = GroundSpeed;
             }
         }
-        if (Input.GetKey("a"))
+        if (Input.GetKey("a") && PlayerBlockMovement == false)
         {
             rb.AddForce(new Vector2(-Speed * Time.deltaTime, 0));
             PlayerDirection = false;
@@ -83,11 +91,12 @@ public class NewPlayerController : MonoBehaviour
         }
 
         //Jump
-        if (Input.GetKeyDown(KeyCode.Space) && (canJump == true))
+        if (Input.GetKeyDown(KeyCode.Space) && (canJump == true) && PlayerBlockMovement == false)
         {
             rb.AddForce(new Vector2(0, jumpForce));
             touchingGround = false;
-            gameObject.GetComponent<Animator>().SetBool("HasJumped", true);          
+            gameObject.GetComponent<Animator>().SetBool("HasJumped", true);
+            JumpPlay();
         }    
     }
 
@@ -124,12 +133,24 @@ public class NewPlayerController : MonoBehaviour
         {
             IsGoingUp = false;
         }
+
         //Control de Vidas
         if (vivo == false)
         {
-            vidas = cloneVidas;
-            vivo = true;
-            this.gameObject.transform.position = SpawnPoint.transform.position;
+            PlayerBlockMovement = true;
+            DeathParticles.Play();
+            sr.enabled = false;
+            deathTimerActivator = true;
+            if(deathTimerActivator == true)
+            { 
+            DeathTimer--;
+            }
+            if(DeathTimer <= 0)
+            {
+                DeathPlay();
+                deathTimerActivator = false;
+                DeathTimer = 300;
+            }
         }
         if (vidas <= 0)
         {
@@ -151,6 +172,7 @@ public class NewPlayerController : MonoBehaviour
                     AnimationActivation = true;
                     rb.AddForce(new Vector2(0, 700));
                     Invulnerability = true;
+                    BloodPlay();
                 }
                 break;
             case "ground":
@@ -181,5 +203,25 @@ public class NewPlayerController : MonoBehaviour
         {
             this.gameObject.transform.position = EasterEggSpawnpoint.transform.position;
         }
+    }
+
+    void BloodPlay()
+    {
+        Blood.Play();
+    }
+
+    void JumpPlay()
+    {
+        Jparticles.Play();
+    }
+
+    void DeathPlay()
+    {
+        vidas = cloneVidas;
+        vivo = true;
+        this.gameObject.transform.position = SpawnPoint.transform.position;
+        DeathParticles.Play();
+        sr.enabled = true;
+        PlayerBlockMovement = false;
     }
 }
