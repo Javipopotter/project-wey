@@ -23,7 +23,7 @@ public class NewPlayerController : MonoBehaviour
 
 
     //Booleans
-    bool canJump;
+    public bool canJump;
     public bool vivo = true;
     public bool IsGoingUp;
     public bool CanGoDown;
@@ -116,11 +116,11 @@ public class NewPlayerController : MonoBehaviour
             Invulnerability = false;
             animationTimer = 200;          
         }
-        if(rb.velocity.y > 0)
+        if(rb.velocity.y > 1)
         {
             IsGoingUp = true;
         }
-        else if (rb.velocity.y <= 0)
+        else if (rb.velocity.y <= 1)
         {
             IsGoingUp = false;
         }

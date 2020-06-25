@@ -4,38 +4,45 @@ using UnityEngine;
 
 public class Agarre : MonoBehaviour
 {
+    public Animator an;
     public NewPlayerController newPlayerController;
     Rigidbody2D rb;
     public float Ymovement;
-    public float WallJumpForce;
-    bool IsGraving;
+    public float XWallJumpForce;
+    float NXWallJumpForce;
+    public float YWallJumpForce;
+    public bool IsGraving;
     bool CanGrab;
-    bool CanWallJump;
 
     // Start is called before the first frame update
     void Start()
     {
+        NXWallJumpForce = -XWallJumpForce;
+        an = gameObject.GetComponent<Animator>();
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        WJumpDirection();
 
-        if(Input.GetKeyDown(KeyCode.Space) && CanWallJump == true)
+        if(Input.GetKeyDown(KeyCode.Space) && CanGrab == true)
         {
             CanGrab = false;
-            rb.AddForce(new Vector2(-WallJumpForce, 0));
+            rb.AddForce(new Vector2(XWallJumpForce * Time.deltaTime, YWallJumpForce));
         }
 
         if(CanGrab == true && Input.GetMouseButton(1))
         {
+            an.SetBool("IsGraving", true);
             IsGraving = true;
             Grab();                      
         }
         else
         {
             IsGraving = false;
+            an.SetBool("IsGraving", false);
         }
 
         if(IsGraving == true && Input.GetKey("w"))
@@ -64,12 +71,25 @@ public class Agarre : MonoBehaviour
         rb.velocity = new Vector2(0, 0);
     }
 
+    void WJumpDirection()
+    {
+        switch (newPlayerController.PlayerDirection)
+        {
+            case true:
+                XWallJumpForce = NXWallJumpForce;
+                break;
+
+            case false:
+                XWallJumpForce = -NXWallJumpForce;
+                break;
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if((collision.gameObject.tag == "AnotherBrickInTheWall"))
-        {
+        {        
             CanGrab = true;
-            CanWallJump = true;
         }
     }
 
@@ -78,7 +98,6 @@ public class Agarre : MonoBehaviour
         if((collision.gameObject.tag == "AnotherBrickInTheWall"))
         {
             CanGrab = false;
-            CanWallJump = false;
         }
     }
 }
