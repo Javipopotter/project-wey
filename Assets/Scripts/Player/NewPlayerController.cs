@@ -12,6 +12,7 @@ public class NewPlayerController : MonoBehaviour
     public ParticleSystem Jparticles;
     public ParticleSystem DeathParticles;
     public SpriteRenderer sr;
+    public ParticleSystem Dust;
 
     //floats
     public float AirSpeed;

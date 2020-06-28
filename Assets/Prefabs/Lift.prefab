@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 504052653341538036}
   m_Layer: 0
   m_Name: Lift
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,7 +189,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 504052653341538032}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -71.68477, y: -13.489822, z: 0}
   m_LocalScale: {x: 17.658615, y: 1.5576031, z: 1}
   m_Children:
@@ -222,15 +222,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 33.21
+  m_Mass: 200.2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!232 &504052653341538034
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -240,15 +240,15 @@ DistanceJoint2D:
   m_GameObject: {fileID: 504052653341538032}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0.027473776, y: 13.54905}
-  m_ConnectedAnchor: {x: -72.77012, y: 142.79239}
+  m_ConnectedAnchor: {x: -71.6967, y: 143.00708}
   m_AutoConfigureDistance: 1
-  m_Distance: 135.18729
+  m_Distance: 139.30583
   m_MaxDistanceOnly: 0
 --- !u!114 &504052653341538037
 MonoBehaviour:
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceReductor: 1
-  DistanceAdd: 0
+  DistanceAdd: 139
 --- !u!61 &504052653341538036
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 504052653932891338}
   m_Layer: 0
   m_Name: Diamond
-  m_TagString: ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -685,7 +685,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: 91b5eeb346e7c514f958d529dd521698, type: 3}
   m_Color: {r: 0.6509804, g: 0.80392164, b: 0.8588236, a: 1}
   m_FlipX: 0

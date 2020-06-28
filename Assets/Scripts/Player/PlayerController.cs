@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float PlayerSpeed = 10.0f;
     public float JumpForce = 10.0f;
     private bool GettingKey;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     bool flashVelocity = false;
     bool CanJump;
     bool CanDoubleJump;
@@ -208,6 +208,10 @@ public class PlayerController : MonoBehaviour
             playerDirection = false;
         }
 
+        if (collision.gameObject.tag == "leftWall")
+        {
+            playerDirection = true;
+        }
         if (collision.gameObject.tag == "leftWall")
         {
             playerDirection = true;

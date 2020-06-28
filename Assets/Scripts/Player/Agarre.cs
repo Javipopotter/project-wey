@@ -9,10 +9,11 @@ public class Agarre : MonoBehaviour
     Rigidbody2D rb;
     public float Ymovement;
     public float XWallJumpForce;
-    float NXWallJumpForce;
+    public float NXWallJumpForce;
     public float YWallJumpForce;
     public bool IsGraving;
     public bool CanGrab;
+    bool flagWJump;
 
     // Start is called before the first frame update
     void Start()
@@ -23,18 +24,28 @@ public class Agarre : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         WJumpDirection();
 
-        if(Input.GetKeyDown(KeyCode.Space) && CanGrab == true)
+        if(Input.GetKeyDown(KeyCode.Space) && CanGrab == true && newPlayerController.canJump == false)
         {
             CanGrab = false;
-            rb.AddForce(new Vector2(XWallJumpForce * Time.deltaTime, YWallJumpForce));
-            print("WallJump");
+            rb.AddForce(new Vector2(XWallJumpForce, YWallJumpForce));
+            flagWJump = true;
+
+            switch(newPlayerController.PlayerDirection)
+            {
+                case true:
+                    newPlayerController.PlayerDirection = false;
+                    break;
+                case false:
+                    newPlayerController.PlayerDirection = true;
+                    break;
+            }
         }
 
-        if(CanGrab == true && Input.GetMouseButton(1))
+        if((IsGraving == true || CanGrab == true)&& Input.GetMouseButton(1) && flagWJump == false)
         {
             an.SetBool("IsGraving", true);
             IsGraving = true;
@@ -46,12 +57,12 @@ public class Agarre : MonoBehaviour
             an.SetBool("IsGraving", false);
         }
 
-        if(IsGraving == true && Input.GetKey("w"))
+        if(IsGraving == true && Input.GetKey("w") && flagWJump == false)
         {
             Upmovement();
         }
 
-        if(IsGraving == true && Input.GetKey("s"))
+        if(IsGraving == true && Input.GetKey("s") && flagWJump == false)
         {
             Downmovement();
         } 
@@ -91,6 +102,7 @@ public class Agarre : MonoBehaviour
         if((collision.gameObject.tag == "AnotherBrickInTheWall"))
         {        
             CanGrab = true;
+            flagWJump = false;
         }
     }
 
@@ -99,6 +111,7 @@ public class Agarre : MonoBehaviour
         if((collision.gameObject.tag == "AnotherBrickInTheWall"))
         {
             CanGrab = false;
+            IsGraving = false;
         }
     }
 }

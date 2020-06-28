@@ -7,6 +7,7 @@ public class LifesController : MonoBehaviour
     public int LifeNumber;
     public NewPlayerController newplayerController;
     public SpriteRenderer sr;
+    public ParticleSystem Fire;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class LifesController : MonoBehaviour
         if(newplayerController.vidas < LifeNumber)
         {
             sr.enabled = false;
+            Fire.Play();
         }
         else
         {
