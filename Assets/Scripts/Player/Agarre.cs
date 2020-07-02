@@ -15,6 +15,10 @@ public class Agarre : MonoBehaviour
     public bool CanGrab;
     bool flagWJump;
 
+    //RAYCAST THINGS
+    public float distance;
+    RaycastHit2D hit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +31,7 @@ public class Agarre : MonoBehaviour
     void Update()
     {
         WJumpDirection();
+
 
         if(Input.GetKeyDown(KeyCode.Space) && CanGrab == true && newPlayerController.canJump == false)
         {

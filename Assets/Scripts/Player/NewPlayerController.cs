@@ -21,11 +21,12 @@ public class NewPlayerController : MonoBehaviour
     public float jumpForce = 500f;
     public float crouchSpeed;
     public float DeathTimer = 300;
+    public float animationTimer = 2;
+    float CAnimationTimer;
 
     //int
     int cloneVidas;
     public int vidas = 4;
-    public int animationTimer = 200; 
 
 
     //Booleans
@@ -47,6 +48,7 @@ public class NewPlayerController : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         cloneVidas = vidas;
+        CAnimationTimer = animationTimer;
         sr = gameObject.GetComponent<SpriteRenderer>();
     }
 
@@ -116,7 +118,7 @@ public class NewPlayerController : MonoBehaviour
 
         if(AnimationActivation == true)
         {
-            animationTimer--;
+            animationTimer -= Time.deltaTime;
         }
 
         if(animationTimer <= 0)
@@ -124,7 +126,7 @@ public class NewPlayerController : MonoBehaviour
             AnimationActivation = false;
             gameObject.GetComponent<Animator>().SetBool("GettingDamage", false);
             Invulnerability = false;
-            animationTimer = 200;          
+            animationTimer = CAnimationTimer;          
         }
         if(rb.velocity.y > 1)
         {
@@ -144,13 +146,13 @@ public class NewPlayerController : MonoBehaviour
             deathTimerActivator = true;
             if(deathTimerActivator == true)
             { 
-            DeathTimer--;
+            DeathTimer -= Time.deltaTime;
             }
             if(DeathTimer <= 0)
             {
                 DeathPlay();
                 deathTimerActivator = false;
-                DeathTimer = 300;
+                DeathTimer = 1;
             }
         }
         if (vidas <= 0)

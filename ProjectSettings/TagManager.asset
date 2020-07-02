@@ -8,7 +8,6 @@ TagManager:
   - rightWall
   - leftWall
   - Enemy
-  - FrictionZone
   - AnotherBrickInTheWall
   layers:
   - Default
