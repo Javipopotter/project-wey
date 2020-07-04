@@ -15,12 +15,12 @@ public class Destructable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player" || collision.gameObject.name == "piece")
+        if(collision.gameObject.tag == "Player" || collision.gameObject.name == "piecex")
         {
             foreach(SpriteRenderer col in Srend)
             {

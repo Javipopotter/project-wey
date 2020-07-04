@@ -267,12 +267,12 @@ PrefabInstance:
     - target: {fileID: 9078536112615087254, guid: 0fad214ce2f9f7f4381d9068e7a7d169,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 145.22278
+      value: 145.4
       objectReference: {fileID: 0}
     - target: {fileID: 9078536112615087254, guid: 0fad214ce2f9f7f4381d9068e7a7d169,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -106.346214
+      value: -96.8
       objectReference: {fileID: 0}
     - target: {fileID: 9078536112615087254, guid: 0fad214ce2f9f7f4381d9068e7a7d169,
         type: 3}
@@ -5939,15 +5939,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoxTest (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8233138434876659629, guid: 0fad214ce2f9f7f4381d9068e7a7d169,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9078536112615087254, guid: 0fad214ce2f9f7f4381d9068e7a7d169,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 136.84929
+      value: 136.1
       objectReference: {fileID: 0}
     - target: {fileID: 9078536112615087254, guid: 0fad214ce2f9f7f4381d9068e7a7d169,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -106.64527
+      value: -96.7
       objectReference: {fileID: 0}
     - target: {fileID: 9078536112615087254, guid: 0fad214ce2f9f7f4381d9068e7a7d169,
         type: 3}
@@ -54579,7 +54584,7 @@ PrefabInstance:
     - target: {fileID: 3612893069525188056, guid: ef0ceab8f73df2148abdd338efcddd46,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3612893069525188057, guid: ef0ceab8f73df2148abdd338efcddd46,
         type: 3}
@@ -54690,6 +54695,11 @@ PrefabInstance:
         type: 3}
       propertyPath: DeathTimer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834641525696248671, guid: ef0ceab8f73df2148abdd338efcddd46,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef0ceab8f73df2148abdd338efcddd46, type: 3}

@@ -12,7 +12,6 @@ public class NewPlayerController : MonoBehaviour
     public ParticleSystem Jparticles;
     public ParticleSystem DeathParticles;
     public SpriteRenderer sr;
-    public ParticleSystem Dust;
 
     //floats
     public float AirSpeed;
@@ -46,6 +45,8 @@ public class NewPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Blood.Stop();
+        Jparticles.Stop();
         rb = gameObject.GetComponent<Rigidbody2D>();
         cloneVidas = vidas;
         CAnimationTimer = animationTimer;

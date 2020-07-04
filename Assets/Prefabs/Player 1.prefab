@@ -9522,6 +9522,7 @@ GameObject:
   - component: {fileID: 3612893069525188056}
   - component: {fileID: 3612893069525188058}
   - component: {fileID: 3612893069525188059}
+  - component: {fileID: 4834641525696248671}
   - component: {fileID: 3612893069525188055}
   - component: {fileID: 3612893069525188061}
   m_Layer: 8
@@ -9587,14 +9588,15 @@ MonoBehaviour:
   Jparticles: {fileID: 3612893068478150691}
   DeathParticles: {fileID: 3612893068343741978}
   sr: {fileID: 0}
+  Dust: {fileID: 0}
   AirSpeed: 1500
   GroundSpeed: 2500
   Speed: 1500
   jumpForce: 1700
   crouchSpeed: 1250
   DeathTimer: 300
-  vidas: 4
   animationTimer: 200
+  vidas: 4
   canJump: 0
   vivo: 1
   IsGoingUp: 1
@@ -9666,6 +9668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSpeed: 1300
   JumpForce: 500
+  rb: {fileID: 0}
   ScJumpForce: 500
   AirSpeed: 700
   vidas: 4
@@ -9697,9 +9700,25 @@ MonoBehaviour:
   newPlayerController: {fileID: 3612893069525188060}
   Ymovement: 0.5
   XWallJumpForce: 20000
+  NXWallJumpForce: 0
   YWallJumpForce: 2000
   IsGraving: 0
   CanGrab: 0
+  distance: 0
+--- !u!114 &4834641525696248671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3612893069525188053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b7e8a3331771194fad36d58f90adafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 0
+  rdashTimer: 0.2
 --- !u!58 &3612893069525188055
 CircleCollider2D:
   m_ObjectHideFlags: 0
