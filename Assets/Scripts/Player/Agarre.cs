@@ -7,7 +7,6 @@ public class Agarre : MonoBehaviour
     public Animator an;
     public NewPlayerController newPlayerController;
     Rigidbody2D rb;
-    public float Ymovement;
     public float XWallJumpForce;
     public float NXWallJumpForce;
     public float YWallJumpForce;
@@ -50,7 +49,7 @@ public class Agarre : MonoBehaviour
             }
         }
 
-        if((IsGraving == true || CanGrab == true)&& Input.GetMouseButton(1) && flagWJump == false)
+        if((IsGraving == true || CanGrab == true) && Input.GetMouseButton(1) && flagWJump == false)
         {
             an.SetBool("IsGraving", true);
             IsGraving = true;
@@ -61,26 +60,6 @@ public class Agarre : MonoBehaviour
             IsGraving = false;
             an.SetBool("IsGraving", false);
         }
-
-        if(IsGraving == true && Input.GetKey("w") && flagWJump == false)
-        {
-            Upmovement();
-        }
-
-        if(IsGraving == true && Input.GetKey("s") && flagWJump == false)
-        {
-            Downmovement();
-        } 
-    }
-
-    void Upmovement()
-    {
-        rb.MovePosition (rb.position + new Vector2(0, Ymovement));
-    }
-
-    void Downmovement()
-    {
-        rb.MovePosition(rb.position + new Vector2(0, -Ymovement));
     }
 
     void Grab()
@@ -108,6 +87,7 @@ public class Agarre : MonoBehaviour
         {        
             CanGrab = true;
             flagWJump = false;
+            newPlayerController.canJump = false;
         }
     }
 

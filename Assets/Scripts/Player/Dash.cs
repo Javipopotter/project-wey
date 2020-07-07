@@ -39,6 +39,7 @@ public class Dash : MonoBehaviour
             Dust.Play();
             newPlayerController.Jparticles.Stop();
             dashed = true;
+            rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
 
             GravSTA = true;
             rb2d.gravityScale = 0;
@@ -55,6 +56,7 @@ public class Dash : MonoBehaviour
             Dust.Play();
             newPlayerController.Jparticles.Stop();
             dashed = true;
+            rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
 
             GravSTA = true;
             rb2d.gravityScale = 0;

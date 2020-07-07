@@ -97,7 +97,9 @@ public class NewPlayerController : MonoBehaviour
         //Jump
         if (Input.GetKeyDown(KeyCode.Space) && (canJump == true) && PlayerBlockMovement == false)
         {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(new Vector2(0, jumpForce));
+            canJump = false;
             touchingGround = false;
             gameObject.GetComponent<Animator>().SetBool("HasJumped", true);
             JumpPlay();
@@ -187,16 +189,15 @@ public class NewPlayerController : MonoBehaviour
                 gameObject.GetComponent<Animator>().SetBool("HasJumped", false);
                 break;           
         }
-        if (collision.gameObject.name == "KillZone")
+        if (collision.gameObject.tag == "InstaKiller")
         {
-            vivo = false;
+            vidas = 0;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "ground")
         {
-            canJump = false;
             Speed = AirSpeed;
             flagcrouch = false;
         }       

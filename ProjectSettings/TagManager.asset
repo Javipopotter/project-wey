@@ -5,10 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - ground
-  - rightWall
-  - leftWall
   - Enemy
   - AnotherBrickInTheWall
+  - InstaKiller
   layers:
   - Default
   - TransparentFX
