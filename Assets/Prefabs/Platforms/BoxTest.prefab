@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2022265201538015291}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 128.53972, y: 26.862576, z: 0}
-  m_LocalScale: {x: 9.847088, y: 9.847088, z: 9.847088}
+  m_LocalScale: {x: 6.0702376, y: 6.0702376, z: 6.0702376}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -118,7 +118,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2022265201538015291}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -145,3 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DestroyedObject: {fileID: 5199023512567029809, guid: 0de4d2f4e8f5a2442b348e5e314f4932,
     type: 3}
+  Srend: []

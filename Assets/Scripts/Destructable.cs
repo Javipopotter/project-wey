@@ -6,6 +6,7 @@ public class Destructable : MonoBehaviour
 {
     public GameObject DestroyedObject;
     public SpriteRenderer[] Srend;
+    bool InstanceOneTime = true;
 
     private void Start()
     {
@@ -27,8 +28,12 @@ public class Destructable : MonoBehaviour
                 col.color = gameObject.GetComponent<SpriteRenderer>().color;
             }
 
-            Instantiate(DestroyedObject, transform.position, transform.rotation);
-             Destroy(gameObject);
+            if (InstanceOneTime == true)
+            {
+                InstanceOneTime = false;
+                Instantiate(DestroyedObject, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
         }
     }
 }

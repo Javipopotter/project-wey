@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 5391764181494319086}
   - component: {fileID: 8373201720464419757}
   - component: {fileID: 1902930196664583712}
+  - component: {fileID: 1732523349862530882}
   m_Layer: 4
-  m_Name: piece
+  m_Name: piecex
   m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,6 +131,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1732523349862530882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2769090465188516121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10f262e1a9daf94690bde27fcf84e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4118375089558449771
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,6 +155,7 @@ GameObject:
   - component: {fileID: 5183456998096726413}
   - component: {fileID: 9039192206256619648}
   - component: {fileID: 2345227745611681150}
+  - component: {fileID: 1199211827816488459}
   m_Layer: 9
   m_Name: piecex
   m_TagString: ground
@@ -260,6 +274,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1199211827816488459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4118375089558449771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10f262e1a9daf94690bde27fcf84e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4828047778849423155
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +298,7 @@ GameObject:
   - component: {fileID: 477254549746216187}
   - component: {fileID: 2332750139068469910}
   - component: {fileID: 5975846100253090336}
+  - component: {fileID: 4392855582143030136}
   m_Layer: 9
   m_Name: piecex
   m_TagString: ground
@@ -390,6 +417,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4392855582143030136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828047778849423155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10f262e1a9daf94690bde27fcf84e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5068090178323655996
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,8 +441,9 @@ GameObject:
   - component: {fileID: 7434406625062996475}
   - component: {fileID: 2268286339770951805}
   - component: {fileID: 300938741301364761}
+  - component: {fileID: 781416188079104149}
   m_Layer: 4
-  m_Name: piece
+  m_Name: piecex
   m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -520,6 +560,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &781416188079104149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5068090178323655996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10f262e1a9daf94690bde27fcf84e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5199023512567029809
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,6 +582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2583116467029930961}
   - component: {fileID: -6797455722510188014}
+  - component: {fileID: 7348155712592619411}
   m_Layer: 0
   m_Name: DestroyedBox
   m_TagString: ground
@@ -546,7 +599,7 @@ Transform:
   m_GameObject: {fileID: 5199023512567029809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.2, y: 398.9, z: -59.101562}
-  m_LocalScale: {x: 1.556089, y: 1.556089, z: 1.556089}
+  m_LocalScale: {x: 0.91810626, y: 0.91810626, z: 0.91810626}
   m_Children:
   - {fileID: 5481603215136045628}
   - {fileID: 825516006072771879}
@@ -575,6 +628,18 @@ MonoBehaviour:
   DestroyedObject: {fileID: 2022265201538015291, guid: 0fad214ce2f9f7f4381d9068e7a7d169,
     type: 3}
   Srend: []
+--- !u!114 &7348155712592619411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5199023512567029809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10f262e1a9daf94690bde27fcf84e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6610993207334744997
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,8 +652,9 @@ GameObject:
   - component: {fileID: 8789350142460045283}
   - component: {fileID: 3431340758670364328}
   - component: {fileID: 4482922040656583317}
+  - component: {fileID: 4775812280022374691}
   m_Layer: 4
-  m_Name: piece
+  m_Name: piecex
   m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -705,6 +771,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4775812280022374691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6610993207334744997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10f262e1a9daf94690bde27fcf84e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7276229872150939303
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,6 +795,7 @@ GameObject:
   - component: {fileID: 1592137720286434568}
   - component: {fileID: 5534208395859252221}
   - component: {fileID: 3534380939319067716}
+  - component: {fileID: 2901840181362706935}
   m_Layer: 9
   m_Name: piecex
   m_TagString: ground
@@ -835,6 +914,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2901840181362706935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7276229872150939303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10f262e1a9daf94690bde27fcf84e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8731850167426709569
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,6 +938,7 @@ GameObject:
   - component: {fileID: 1498048214112269633}
   - component: {fileID: 8785916391965523755}
   - component: {fileID: 5903806595244380929}
+  - component: {fileID: 388468685694683395}
   m_Layer: 9
   m_Name: piecex
   m_TagString: ground
@@ -965,6 +1057,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &388468685694683395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8731850167426709569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10f262e1a9daf94690bde27fcf84e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8758336525884247887
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,8 +1081,9 @@ GameObject:
   - component: {fileID: 8419665542476251728}
   - component: {fileID: 1247104857954679413}
   - component: {fileID: 5358714365006501888}
+  - component: {fileID: 7871333618957609026}
   m_Layer: 9
-  m_Name: piece
+  m_Name: piecex
   m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1095,6 +1200,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7871333618957609026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8758336525884247887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10f262e1a9daf94690bde27fcf84e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9208077172093376629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,8 +1224,9 @@ GameObject:
   - component: {fileID: 1232593890037677626}
   - component: {fileID: 5473369534565273821}
   - component: {fileID: 6672614211231437873}
+  - component: {fileID: 8265150724795555391}
   m_Layer: 4
-  m_Name: piece
+  m_Name: piecex
   m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1225,3 +1343,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8265150724795555391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9208077172093376629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10f262e1a9daf94690bde27fcf84e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
