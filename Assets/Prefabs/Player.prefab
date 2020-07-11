@@ -71,19 +71,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnPoint: {fileID: 0}
   EasterEggSpawnpoint: {fileID: 0}
+  Blood: {fileID: 0}
+  Jparticles: {fileID: 0}
+  DeathParticles: {fileID: 0}
+  sr: {fileID: 0}
   AirSpeed: 5
   GroundSpeed: 10
+  Speed: 0
   jumpForce: 1700
-  wallImpulse: 600
-  wallUpImpulse: 1624.27
-  wallFriction: 206.4
-  vidas: 4
+  crouchSpeed: 0
+  DeathTimer: 300
   animationTimer: 0
+  vidas: 4
+  canJump: 0
   vivo: 1
   IsGoingUp: 0
   CanGoDown: 0
-  touchingGround: 0
   AnimationActivation: 0
+  PlayerDirection: 0
 --- !u!212 &1176482989394247270
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -148,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSpeed: 1300
   JumpForce: 500
+  rb: {fileID: 0}
   ScJumpForce: 500
   AirSpeed: 700
   vidas: 4
@@ -175,7 +181,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e8f8faeb7a9ef548a7254088c41edd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  an: {fileID: 0}
+  newPlayerController: {fileID: 0}
+  XWallJumpForce: 0
+  NXWallJumpForce: 0
+  YWallJumpForce: 0
+  IsGraving: 0
   CanGrab: 0
+  distance: 0
 --- !u!58 &1176482989394247273
 CircleCollider2D:
   m_ObjectHideFlags: 0

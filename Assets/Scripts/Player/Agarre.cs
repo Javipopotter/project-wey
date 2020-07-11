@@ -10,13 +10,8 @@ public class Agarre : MonoBehaviour
     public float XWallJumpForce;
     public float NXWallJumpForce;
     public float YWallJumpForce;
-    public bool IsGraving;
     public bool CanGrab;
     bool flagWJump;
-
-    //RAYCAST THINGS
-    public float distance;
-    RaycastHit2D hit;
 
     // Start is called before the first frame update
     void Start()
@@ -49,22 +44,20 @@ public class Agarre : MonoBehaviour
             }
         }
 
-        if((IsGraving == true || CanGrab == true) && Input.GetMouseButton(1) && flagWJump == false)
+        if((CanGrab == true) && Input.GetMouseButton(1) && flagWJump == false)
         {
             an.SetBool("IsGraving", true);
-            IsGraving = true;
             Grab();                      
         }
         else
         {
-            IsGraving = false;
             an.SetBool("IsGraving", false);
         }
     }
 
     void Grab()
     {
-        rb.velocity = new Vector2(0, 0);
+        rb.velocity = new Vector2(rb.velocity.x, 0);
     }
 
     void WJumpDirection()
@@ -87,7 +80,7 @@ public class Agarre : MonoBehaviour
         {        
             CanGrab = true;
             flagWJump = false;
-            newPlayerController.canJump = false;
+            newPlayerController.canJump = false;   
         }
     }
 
@@ -96,7 +89,6 @@ public class Agarre : MonoBehaviour
         if((collision.gameObject.tag == "AnotherBrickInTheWall"))
         {
             CanGrab = false;
-            IsGraving = false;
         }
     }
 }

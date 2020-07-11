@@ -33,11 +33,9 @@ public class NewPlayerController : MonoBehaviour
     public bool vivo = true;
     public bool IsGoingUp;
     public bool CanGoDown;
-    public bool touchingGround;
     public bool AnimationActivation;
     bool Invulnerability;
     bool flagcrouch;
-    bool QCrouched;
     public bool PlayerDirection;
     bool deathTimerActivator;
     bool PlayerBlockMovement;
@@ -63,35 +61,28 @@ public class NewPlayerController : MonoBehaviour
             if (flagcrouch == true)
             {
                 gameObject.GetComponent<Animator>().SetBool("IsCrouched", true);
-                QCrouched = true;
+                Speed = crouchSpeed;
             } 
         } 
         else if(Input.GetKeyUp("s"))
         {
             CanGoDown = false;
             gameObject.GetComponent<Animator>().SetBool("IsCrouched", false);
-            QCrouched = false;
+            Speed = GroundSpeed;
         }
+
             //LateralMovement
             if (Input.GetKey("d") && PlayerBlockMovement == false)
         {
             rb.AddForce(new Vector2(Speed * Time.deltaTime, 0));
             PlayerDirection = true;
-
-            if (touchingGround == true)
-            {
-                Speed = GroundSpeed;
-            }
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
         if (Input.GetKey("a") && PlayerBlockMovement == false)
         {
             rb.AddForce(new Vector2(-Speed * Time.deltaTime, 0));
             PlayerDirection = false;
-
-            if (touchingGround == true)
-            {
-                Speed = GroundSpeed;
-            }
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
 
         //Jump
@@ -100,7 +91,7 @@ public class NewPlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(new Vector2(0, jumpForce));
             canJump = false;
-            touchingGround = false;
+            Speed = AirSpeed;
             gameObject.GetComponent<Animator>().SetBool("HasJumped", true);
             JumpPlay();
         }    
@@ -114,11 +105,6 @@ public class NewPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(QCrouched == true)
-        {
-            Speed = crouchSpeed;
-        }
-
         if(AnimationActivation == true)
         {
             animationTimer -= Time.deltaTime;
@@ -184,7 +170,6 @@ public class NewPlayerController : MonoBehaviour
             case "ground":
                 canJump = true;
                 Speed = GroundSpeed;
-                touchingGround = true;
                 flagcrouch = true;
                 gameObject.GetComponent<Animator>().SetBool("HasJumped", false);
                 break;           
@@ -199,7 +184,7 @@ public class NewPlayerController : MonoBehaviour
         if (collision.gameObject.tag == "ground")
         {
             Speed = AirSpeed;
-            flagcrouch = false;
+            flagcrouch = false;           
         }       
     }
     private void OnTriggerEnter2D(Collider2D collision)

@@ -14356,7 +14356,6 @@ MonoBehaviour:
   vivo: 1
   IsGoingUp: 1
   CanGoDown: 0
-  touchingGround: 1
   AnimationActivation: 0
   PlayerDirection: 1
 --- !u!212 &3612893069525188056
@@ -14491,7 +14490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack: {fileID: 5107138134326808327, guid: 4e18b0299c222b947bb8762d809e609e, type: 3}
   AttackTimer: 2
-  Destroyer: 0
+  CodeActivator: 0
 --- !u!95 &3612893069525188061
 Animator:
   serializedVersion: 3

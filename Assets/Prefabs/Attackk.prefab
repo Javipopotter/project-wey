@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2874835266557886872}
   m_Layer: 8
   m_Name: Attackk
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,9 +46,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.016857801, y: -0.0070454623}
+  m_Offset: {x: -0.016857952, y: 0.015102782}
   serializedVersion: 2
-  m_Radius: 1.9817271
+  m_Radius: 2.745531
 --- !u!114 &-2874835266557886872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack: {fileID: 171218723684085256, guid: ef0ceab8f73df2148abdd338efcddd46, type: 3}
   DestroyerTimer: 0.3
+  force: 0
 --- !u!1 &7069751127180598420
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +90,7 @@ Transform:
   m_GameObject: {fileID: 7069751127180598420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.6631684, y: 3.6631684, z: 3.6631684}
+  m_LocalScale: {x: 5.0186977, y: 5.0186977, z: 5.0186977}
   m_Children: []
   m_Father: {fileID: 5107138134326808324}
   m_RootOrder: 0

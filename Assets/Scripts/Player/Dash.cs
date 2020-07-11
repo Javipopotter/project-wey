@@ -14,6 +14,7 @@ public class Dash : MonoBehaviour
     bool rdTimerActivator;
     bool ldTimerActivator;
     bool dashed;
+    bool FlagDashStop;
 
     public float GravST = 0.2f;
     bool GravSTA;
@@ -40,6 +41,7 @@ public class Dash : MonoBehaviour
             newPlayerController.Jparticles.Stop();
             dashed = true;
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+            FlagDashStop = true;
 
             GravSTA = true;
             rb2d.gravityScale = 0;
@@ -57,9 +59,16 @@ public class Dash : MonoBehaviour
             newPlayerController.Jparticles.Stop();
             dashed = true;
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+            FlagDashStop = true;
 
             GravSTA = true;
             rb2d.gravityScale = 0;
+        }
+
+        if(FlagDashStop == true)
+        {
+            FlagDashStop = false;
+            rb2d.velocity = Vector2.zero;
         }
 
         restartDashTimer();
@@ -105,7 +114,7 @@ public class Dash : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "ground" || collision.gameObject.tag == "AnotherBrickInTheWall")
         {
