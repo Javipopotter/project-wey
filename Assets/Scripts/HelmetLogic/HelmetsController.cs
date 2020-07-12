@@ -10,15 +10,21 @@ public class HelmetsController : MonoBehaviour
     Vector2 fixedPos;
     bool canGetTheHelmet;
     Quaternion RotationSaver;
-    bool flipActivator;
     bool HasRb;
+    bool HasHelmet;
+    public bool GetFromBottom;
+    Vector2 ScaleSaver;
     
     bool TimerActivator;
     float ClickTimer = 0.2f;
 
+    bool IgnoreTimerActivator;
+    float IgnoreTimer = 0.5f;
+
     private void Start()
     {
         RotationSaver = transform.rotation;
+        ScaleSaver = gameObject.transform.localScale * 3;
     }
     void Update()
     {
@@ -27,7 +33,7 @@ public class HelmetsController : MonoBehaviour
             gameObject.AddComponent<Rigidbody2D>();
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 5;
             gameObject.GetComponent<Rigidbody2D>().freezeRotation = true;
-            gameObject.GetComponent<CircleCollider2D>().enabled = true;
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
             transform.GetChild(0).gameObject.SetActive(true);
         }
 
@@ -42,23 +48,25 @@ public class HelmetsController : MonoBehaviour
 
         fixedPos = new Vector2(player.transform.position.x, player.transform.position.y) + new Vector2(fixX, fixY);
 
-        if (Input.GetMouseButtonDown(0) && canGetTheHelmet == true)
+        if ((Input.GetMouseButtonDown(0) && canGetTheHelmet == true) || GetFromBottom == true)
         {
+            GetFromBottom = false;
             Destroy(GetComponent<Rigidbody2D>());
-            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             transform.parent = player.transform;
             gameObject.transform.rotation = RotationSaver;
             gameObject.transform.position = fixedPos;
             transform.GetChild(0).gameObject.SetActive(false);
-            flipActivator = true;
+            transform.GetChild(1).gameObject.SetActive(false);
+            gameObject.transform.localScale = ScaleSaver;
         }
 
-        if(Input.GetMouseButtonDown(0) && HasRb == false && ClickTimer < 0.2f && ClickTimer > 0)
+        if(Input.GetMouseButtonDown(0) && HasHelmet == true && ClickTimer < 0.2f && ClickTimer > 0)
         {
             Throw();
         }
 
-        if(flipActivator == true)
+        if(HasHelmet == true)
         {
             if (GameObject.Find("Player").GetComponent<NewPlayerController>().PlayerDirection == false)
             {
@@ -68,6 +76,15 @@ public class HelmetsController : MonoBehaviour
             {
                 gameObject.GetComponent<SpriteRenderer>().flipX = false;
             }
+        }
+
+        if(gameObject.transform.parent == player.transform)
+        {
+            HasHelmet = true;
+        }
+        else
+        {
+            HasHelmet = false;
         }
 
         Timer();
@@ -85,9 +102,17 @@ public class HelmetsController : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Attack")
+        {
+            canGetTheHelmet = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Attack")
         {
             canGetTheHelmet = false;
         }
@@ -97,9 +122,12 @@ public class HelmetsController : MonoBehaviour
     {
         gameObject.transform.parent = null;
 
+        transform.GetChild(1).gameObject.SetActive(false);
         gameObject.AddComponent<Rigidbody2D>();
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 5;
         gameObject.GetComponent<Rigidbody2D>().freezeRotation = true;
+        Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        IgnoreTimerActivator = true;
 
         Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -126,6 +154,18 @@ public class HelmetsController : MonoBehaviour
             {
                 TimerActivator = false;
                 ClickTimer = 0.2f;
+            }
+        }
+
+        if(IgnoreTimerActivator == true)
+        {
+            IgnoreTimer -= Time.deltaTime;
+            if (IgnoreTimer <= 0)
+            {
+                IgnoreTimerActivator = false;
+                IgnoreTimer = 0.5f;
+                Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
+                transform.GetChild(1).gameObject.SetActive(true);
             }
         }
     }
