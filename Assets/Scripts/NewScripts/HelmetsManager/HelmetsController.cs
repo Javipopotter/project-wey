@@ -14,6 +14,7 @@ public class HelmetsController : MonoBehaviour
     bool HasHelmet;
     public bool GetFromBottom;
     Vector2 ScaleSaver;
+    public float ScaleFixer;
     
     bool TimerActivator;
     float ClickTimer = 0.2f;
@@ -24,7 +25,7 @@ public class HelmetsController : MonoBehaviour
     private void Start()
     {
         RotationSaver = transform.rotation;
-        ScaleSaver = gameObject.transform.localScale * 3;
+        ScaleSaver = gameObject.transform.localScale * ScaleFixer;
     }
     void Update()
     {

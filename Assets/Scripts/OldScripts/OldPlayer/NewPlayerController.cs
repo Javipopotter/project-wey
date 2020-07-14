@@ -22,6 +22,7 @@ public class NewPlayerController : MonoBehaviour
     public float DeathTimer = 300;
     public float animationTimer = 2;
     float CAnimationTimer;
+    float magnitude = 0;
 
     //int
     int cloneVidas;
@@ -90,7 +91,6 @@ public class NewPlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(new Vector2(0, jumpForce));
-            canJump = false;
             Speed = AirSpeed;
             gameObject.GetComponent<Animator>().SetBool("HasJumped", true);
             JumpPlay();
@@ -104,7 +104,8 @@ public class NewPlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {       
+
         if(AnimationActivation == true)
         {
             animationTimer -= Time.deltaTime;
@@ -132,17 +133,15 @@ public class NewPlayerController : MonoBehaviour
             PlayerBlockMovement = true;
             DeathParticles.Play();
             sr.enabled = false;
-            deathTimerActivator = true;
-            if(deathTimerActivator == true)
-            { 
-            DeathTimer -= Time.deltaTime;
-            }
-            if(DeathTimer <= 0)
-            {
-                DeathPlay();
-                deathTimerActivator = false;
-                DeathTimer = 1;
-            }
+            rb.isKinematic = true;
+
+            magnitude += Time.deltaTime * 2;
+
+            Vector2 force = transform.position - SpawnPoint.transform.position;
+
+            force.Normalize();
+
+            transform.Translate(-force * magnitude);
         }
         if (vidas <= 0)
         {
@@ -168,7 +167,6 @@ public class NewPlayerController : MonoBehaviour
                 }
                 break;
             case "ground":
-                canJump = true;
                 Speed = GroundSpeed;
                 flagcrouch = true;
                 gameObject.GetComponent<Animator>().SetBool("HasJumped", false);
@@ -179,12 +177,21 @@ public class NewPlayerController : MonoBehaviour
             vidas = 0;
         }
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "ground")
+        {
+            canJump = true;
+        }
+    }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "ground")
         {
             Speed = AirSpeed;
-            flagcrouch = false;           
+            flagcrouch = false;
+            canJump = false;
         }       
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -192,6 +199,11 @@ public class NewPlayerController : MonoBehaviour
         if (collision.gameObject.name == "EasterEgg Zone")
         {
             this.gameObject.transform.position = EasterEggSpawnpoint.transform.position;
+        }
+
+        if(collision.gameObject.name == "SpawnPoint")
+        {
+                DeathPlay();         
         }
     }
 
@@ -207,10 +219,11 @@ public class NewPlayerController : MonoBehaviour
 
     void DeathPlay()
     {
+        magnitude = 0;
+        rb.isKinematic = false;
         vidas = cloneVidas;
         vivo = true;
-        this.gameObject.transform.position = SpawnPoint.transform.position;
-        DeathParticles.Play();
+        DeathParticles.Stop();
         sr.enabled = true;
         PlayerBlockMovement = false;
     }

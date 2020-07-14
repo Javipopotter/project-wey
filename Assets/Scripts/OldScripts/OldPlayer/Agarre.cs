@@ -10,8 +10,7 @@ public class Agarre : MonoBehaviour
     public float XWallJumpForce;
     public float NXWallJumpForce;
     public float YWallJumpForce;
-    public bool CanGrab;
-    bool flagWJump;
+    public bool CanGrab;  
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +25,15 @@ public class Agarre : MonoBehaviour
     {
         WJumpDirection();
 
+        if (GameObject.Find("Player").GetComponent<NewPlayerController>().canJump == true)
+        {
+            CanGrab = false;
+        }
 
-        if(Input.GetKeyDown(KeyCode.Space) && CanGrab == true && newPlayerController.canJump == false)
+        if (Input.GetKeyDown(KeyCode.Space) && CanGrab == true && newPlayerController.canJump == false)
         {
             CanGrab = false;
             rb.AddForce(new Vector2(XWallJumpForce, YWallJumpForce));
-            flagWJump = true;
 
             switch(newPlayerController.PlayerDirection)
             {
@@ -42,22 +44,7 @@ public class Agarre : MonoBehaviour
                     newPlayerController.PlayerDirection = true;
                     break;
             }
-        }
-
-        if((CanGrab == true) && Input.GetMouseButton(1) && flagWJump == false)
-        {
-            an.SetBool("IsGraving", true);
-            Grab();                      
-        }
-        else
-        {
-            an.SetBool("IsGraving", false);
-        }
-    }
-
-    void Grab()
-    {
-        rb.velocity = new Vector2(rb.velocity.x, 0);
+        }     
     }
 
     void WJumpDirection()
@@ -74,20 +61,20 @@ public class Agarre : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if((collision.gameObject.tag == "AnotherBrickInTheWall"))
-        {        
-            CanGrab = true;
-            flagWJump = false;
-            newPlayerController.canJump = false;   
+        if(collision.gameObject.tag == "AnotherBrickInTheWall")
+        {
+        //   an.SetBool("IsGraving", true);
+            CanGrab = true;  
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if((collision.gameObject.tag == "AnotherBrickInTheWall"))
+        if(collision.gameObject.tag == "AnotherBrickInTheWall")
         {
+         //   an.SetBool("IsGraving", false);
             CanGrab = false;
         }
     }
