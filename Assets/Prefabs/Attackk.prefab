@@ -64,6 +64,8 @@ MonoBehaviour:
   attack: {fileID: 171218723684085256, guid: ef0ceab8f73df2148abdd338efcddd46, type: 3}
   DestroyerTimer: 0.3
   force: 0
+  FromAboveAttack: 2000
+  NormalMagnitude: 750
 --- !u!1 &7069751127180598420
 GameObject:
   m_ObjectHideFlags: 0

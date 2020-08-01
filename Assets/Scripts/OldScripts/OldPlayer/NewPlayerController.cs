@@ -38,7 +38,6 @@ public class NewPlayerController : MonoBehaviour
     bool Invulnerability;
     bool flagcrouch;
     public bool PlayerDirection;
-    bool deathTimerActivator;
     bool PlayerBlockMovement;
 
     // Start is called before the first frame update
@@ -79,7 +78,7 @@ public class NewPlayerController : MonoBehaviour
             PlayerDirection = true;
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
-        if (Input.GetKey("a") && PlayerBlockMovement == false)
+            else if (Input.GetKey("a") && PlayerBlockMovement == false)
         {
             rb.AddForce(new Vector2(-Speed * Time.deltaTime, 0));
             PlayerDirection = false;
@@ -165,12 +164,7 @@ public class NewPlayerController : MonoBehaviour
                     Invulnerability = true;
                     BloodPlay();
                 }
-                break;
-            case "ground":
-                Speed = GroundSpeed;
-                flagcrouch = true;
-                gameObject.GetComponent<Animator>().SetBool("HasJumped", false);
-                break;           
+                break;        
         }
         if (collision.gameObject.tag == "InstaKiller")
         {
@@ -180,14 +174,24 @@ public class NewPlayerController : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "ground")
+        if(collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Attack"))
         {
             canJump = true;
+            Speed = GroundSpeed;
+            gameObject.GetComponent<Animator>().SetBool("HasJumped", false);
+
+            if (Input.GetKey("s"))
+            {
+                CanGoDown = true;
+                IsGoingUp = false;
+                 gameObject.GetComponent<Animator>().SetBool("IsCrouched", true);
+                 Speed = crouchSpeed;
+            }
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "ground")
+        if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Attack"))
         {
             Speed = AirSpeed;
             flagcrouch = false;

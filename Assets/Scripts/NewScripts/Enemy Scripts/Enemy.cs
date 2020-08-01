@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Attack")
+        if(collision.gameObject.CompareTag("Attack"))
         {
             float magnitude = 1500;
 
@@ -43,9 +43,14 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "InstaKiller")
+        if (collision.gameObject.CompareTag("InstaKiller"))
         {
             lifes = 0;
+        }
+
+        if (collision.gameObject.CompareTag("Attack"))
+        {
+            lifes--;
         }
     }
 }

@@ -8,6 +8,8 @@ public class MotherFuckerDestroyer : MonoBehaviour
     public float DestroyerTimer = 0.1f;
     Rigidbody2D rb;
     public float force;
+    public float FromAboveAttack;
+    public float NormalMagnitude;
     private void Start()
     {
         rb = gameObject.GetComponentInParent<Rigidbody2D>();    
@@ -15,10 +17,9 @@ public class MotherFuckerDestroyer : MonoBehaviour
 
     void Update()
     {
-        if(attack.CodeActivator == false)
-        {
-            DestroyerTimer -= Time.deltaTime;
-        }
+
+        DestroyerTimer -= Time.deltaTime;
+
 
         if(DestroyerTimer <= 0)
         {
@@ -28,9 +29,18 @@ public class MotherFuckerDestroyer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            float magnitude = 750;
+            float magnitude;
+
+            if(transform.position.y > collision.transform.position.y && transform.position.x < collision.transform.position.x + 5 && transform.position.x > collision.transform.position.x - 5)
+            {
+                magnitude = FromAboveAttack;
+            }
+            else
+            {
+                magnitude = NormalMagnitude;
+            }
 
             Vector2 force = transform.position - collision.transform.position;
 

@@ -88,7 +88,7 @@ public class Dash : MonoBehaviour
             ldTimerActivator = false;
         }
 
-        if (GravST <= 0)
+        if (GravST <= 0 || Input.GetKeyDown(KeyCode.Space))
         {
             GravSTA = false;
             GravST = 0.4f;

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1310705685}
   m_Layer: 0
   m_Name: UnderCollider
-  m_TagString: UnderHat
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,6 +172,7 @@ MonoBehaviour:
   fixX: 0
   fixY: 1
   GetFromBottom: 0
+  ScaleFixer: 0
 --- !u!61 &1910310649
 BoxCollider2D:
   m_ObjectHideFlags: 0

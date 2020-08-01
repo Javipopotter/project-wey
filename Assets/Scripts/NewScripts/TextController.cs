@@ -6,6 +6,16 @@ public class TextController : MonoBehaviour
 {
     public GameObject moveText;
     public bool DisablesOnExit;
+    Quaternion RotationSaver;
+    private void Start()
+    {
+        RotationSaver = GameObject.Find("Player").transform.rotation;
+    }
+
+    private void Update()
+    {
+        transform.rotation = RotationSaver;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")

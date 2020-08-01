@@ -10,7 +10,9 @@ public class Agarre : MonoBehaviour
     public float XWallJumpForce;
     public float NXWallJumpForce;
     public float YWallJumpForce;
-    public bool CanGrab;  
+    public bool CanGrab;
+    public float SlipperVel;
+    public bool SlipperFlag;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +35,9 @@ public class Agarre : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && CanGrab == true && newPlayerController.canJump == false)
         {
             CanGrab = false;
+            rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(new Vector2(XWallJumpForce, YWallJumpForce));
+            SlipperFlag = false;
 
             switch(newPlayerController.PlayerDirection)
             {
@@ -63,18 +67,23 @@ public class Agarre : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "AnotherBrickInTheWall")
+        if(collision.gameObject.CompareTag("AnotherBrickInTheWall") && rb.velocity.y <= 0)
         {
         //   an.SetBool("IsGraving", true);
-            CanGrab = true;  
+            CanGrab = true;
+            if (SlipperFlag == true && CanGrab == true)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, -SlipperVel);
+            }
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "AnotherBrickInTheWall")
+        if(collision.gameObject.CompareTag("AnotherBrickInTheWall"))
         {
-         //   an.SetBool("IsGraving", false);
+            //   an.SetBool("IsGraving", false);
+            SlipperFlag = true;
             CanGrab = false;
         }
     }

@@ -49,7 +49,7 @@ public class HelmetsController : MonoBehaviour
 
         fixedPos = new Vector2(player.transform.position.x, player.transform.position.y) + new Vector2(fixX, fixY);
 
-        if ((Input.GetMouseButtonDown(0) && canGetTheHelmet == true) || GetFromBottom == true)
+        if ((Input.GetMouseButtonDown(1) && canGetTheHelmet == true) || GetFromBottom == true)
         {
             GetFromBottom = false;
             Destroy(GetComponent<Rigidbody2D>());
@@ -92,12 +92,12 @@ public class HelmetsController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
             canGetTheHelmet = true;
         }
 
-        if(collision.gameObject.tag == "InstaKiller")
+        if(collision.gameObject.CompareTag("InstaKiller"))
         {
             Destroy(gameObject);
         }
@@ -105,7 +105,7 @@ public class HelmetsController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Attack")
+        if (collision.gameObject.CompareTag("Player"))
         {
             canGetTheHelmet = true;
         }
@@ -113,7 +113,7 @@ public class HelmetsController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Attack")
+        if (collision.gameObject.CompareTag("Player"))
         {
             canGetTheHelmet = false;
         }
