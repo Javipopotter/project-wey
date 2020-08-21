@@ -12297,27 +12297,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tileset_4
-      rect:
-        serializedVersion: 2
-        x: 508
-        y: 860
-        width: 86
-        height: 86
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2496e33487ebb5120800000000000000
-      internalID: 2403724249865808194
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Tileset_5
       rect:
         serializedVersion: 2
@@ -12741,10 +12720,10 @@ TextureImporter:
       name: Tileset_25
       rect:
         serializedVersion: 2
-        x: 336
+        x: 337
         y: 602
-        width: 86
-        height: 86
+        width: 85
+        height: 85
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -12764,8 +12743,8 @@ TextureImporter:
         serializedVersion: 2
         x: 422
         y: 602
-        width: 86
-        height: 86
+        width: 85
+        height: 85
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -12909,10 +12888,10 @@ TextureImporter:
       name: Tileset_33
       rect:
         serializedVersion: 2
-        x: 336
-        y: 516
-        width: 86
-        height: 86
+        x: 337
+        y: 517
+        width: 85
+        height: 85
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -12931,9 +12910,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 422
-        y: 516
-        width: 86
-        height: 86
+        y: 517
+        width: 85
+        height: 85
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -13287,10 +13266,10 @@ TextureImporter:
       name: Tileset_51
       rect:
         serializedVersion: 2
-        x: 508
-        y: 344
-        width: 86
-        height: 86
+        x: 509
+        y: 345
+        width: 84
+        height: 85
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -13426,27 +13405,6 @@ TextureImporter:
       bones: []
       spriteID: 82ccfb5e04f60edd0800000000000000
       internalID: -2458843072021148632
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tileset_59
-      rect:
-        serializedVersion: 2
-        x: 508
-        y: 258
-        width: 86
-        height: 86
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 21be454c109ae3d30800000000000000
-      internalID: 4413150509923625746
       vertices: []
       indices: 
       edges: []

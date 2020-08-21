@@ -6,6 +6,8 @@ MonoImporter:
   defaultReferences:
   - Player: {fileID: 3612893069525188053, guid: ef0ceab8f73df2148abdd338efcddd46,
       type: 3}
+  - newPlayerController: {fileID: 3612893069525188060, guid: ef0ceab8f73df2148abdd338efcddd46,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -105,6 +105,7 @@ MonoBehaviour:
   DestroysACEnemies: 0
   DestroysAAtkCollision: 1
   DestroysAtContact: 0
+  DestroyedByOtherFragments: 0
 --- !u!50 &2373753893743252937
 Rigidbody2D:
   serializedVersion: 4
@@ -167,6 +168,9 @@ MonoBehaviour:
   GravityScale: 6
   InteractionZone: {fileID: 0}
   BlockScale: 0
+  ConvertsIntoAWeaponWhenGrab: 0
   Scale:
   - 4
   - 0.1
+  newPlayerController: {fileID: 3612893069525188060, guid: ef0ceab8f73df2148abdd338efcddd46,
+    type: 3}

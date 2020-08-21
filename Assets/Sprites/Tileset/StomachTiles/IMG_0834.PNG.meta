@@ -1023,10 +1023,10 @@ TextureImporter:
       name: IMG_0834_33
       rect:
         serializedVersion: 2
-        x: 508
-        y: 516
-        width: 86
-        height: 86
+        x: 510
+        y: 517
+        width: 82
+        height: 85
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

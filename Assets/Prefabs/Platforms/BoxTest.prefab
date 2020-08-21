@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8077442293039901313}
   - component: {fileID: 8233138434876659629}
   - component: {fileID: 2551831168289526307}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BoxTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,6 +143,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe021e2809248645bf07a2fdbfde0c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Attack: {fileID: 0}
   DestroyedObject: {fileID: 5199023512567029809, guid: 0de4d2f4e8f5a2442b348e5e314f4932,
     type: 3}
   Srend: []
+  DestroysACEnemies: 0
+  DestroysAAtkCollision: 0
+  DestroysAtContact: 0
+  DestroyedByOtherFragments: 0

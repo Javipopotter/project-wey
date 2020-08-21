@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KillerTile
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: e45dadbba9bf53f4b86841850e0a2d73, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9215687, g: 0.9960785, b: 0.27450982, a: 1}
   m_Transform:
     e00: 1
     e01: 0

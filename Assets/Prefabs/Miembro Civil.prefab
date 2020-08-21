@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4866049873942570705}
   - component: {fileID: 4866049873942570704}
   - component: {fileID: 7167173154486578118}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Miembro Civil
   m_TagString: ground
   m_Icon: {fileID: 0}
@@ -108,6 +108,7 @@ MonoBehaviour:
   DestroysACEnemies: 0
   DestroysAAtkCollision: 1
   DestroysAtContact: 0
+  DestroyedByOtherFragments: 0
 --- !u!50 &4866049873942570705
 Rigidbody2D:
   serializedVersion: 4
@@ -170,6 +171,7 @@ MonoBehaviour:
   GravityScale: 6
   InteractionZone: {fileID: 0}
   BlockScale: 0
+  ConvertsIntoAWeaponWhenGrab: 0
   Scale:
   - 4
   - 0.1

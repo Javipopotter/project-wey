@@ -19,7 +19,7 @@ public class Destructable : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((collision.gameObject.CompareTag("Player") && DestroysAtContact) || collision.gameObject.name == "piecex" && DestroyedByOtherFragments || (collision.gameObject.CompareTag("Enemy") && DestroysACEnemies))
+        if ((collision.gameObject.CompareTag("Player") && DestroysAtContact) || (collision.gameObject.name == "piecex" && DestroyedByOtherFragments) || (collision.gameObject.CompareTag("Enemy") && DestroysACEnemies))
         {
             foreach (SpriteRenderer col in Srend)
             {

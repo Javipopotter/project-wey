@@ -17,7 +17,6 @@ public class NotHelmetBehaviour : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 5;
             gameObject.GetComponent<Rigidbody2D>().freezeRotation = true;
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
-            transform.GetChild(0).gameObject.SetActive(true);
         }
 
         if (gameObject.GetComponent<Rigidbody2D>() == null)
